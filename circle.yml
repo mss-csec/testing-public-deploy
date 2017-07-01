@@ -1,0 +1,14 @@
+general:
+  branches:
+    ignore:
+      - deployed
+
+test:
+  post:
+    - ./post
+
+deployment:
+  production:
+    branch: master 
+    commands:
+      - ./deploy
