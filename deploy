@@ -6,8 +6,6 @@ if [ -z `git branch | grep deployed` ]; then
   git checkout -b deployed
 fi
 
-git reset $CIRCLE_SHA1~1
-
 ./post
 
 git config user.email "markville.compsci@gmail.com"
@@ -15,6 +13,6 @@ git config user.name "MSS CSEC"
 
 git add -fA
 git commit --allow-empty -m "$(git log -1 --pretty=%B) [deploy]"
-git push -f origin deployed && echo "Deploy successful"
+git push origin deployed && echo "Deploy successful"
 
 git checkout -
