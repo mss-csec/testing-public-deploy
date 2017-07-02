@@ -5,7 +5,7 @@ set -e
 commit="$(git log -1 --pretty=%H)"
 
 if [ `git branch | grep deployed` ]; then
-  git checkout -D deployed
+  git branch -D deployed
 fi
 git checkout --orphan deployed
 
