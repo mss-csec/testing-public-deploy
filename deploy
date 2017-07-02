@@ -2,9 +2,10 @@
 
 set -e
 
-if [ -z `git branch | grep deployed` ]; then
-  git checkout -b deployed
+if [ `git branch | grep deployed` ]; then
+  git checkout -D deployed
 fi
+git checkout --orphan deployed
 
 ./post
 
@@ -13,7 +14,7 @@ git config user.name "MSS CSEC"
 
 git add -fA
 git commit --allow-empty -m "$(git log -1 --pretty=%B) [deploy]"
-git push origin deployed
+git push -f origin deployed
 
 echo "Deploy successful"
 
