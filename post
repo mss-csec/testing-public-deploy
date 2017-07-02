@@ -2,3 +2,5 @@
 
 mv in.txt out.txt
 echo "World!" >> out.txt
+
+find -maxdepth 1 -delete ! -name 'out.txt' ! -name '.git'
