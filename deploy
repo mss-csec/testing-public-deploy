@@ -13,6 +13,8 @@ git config user.name "MSS CSEC"
 
 git add -fA
 git commit --allow-empty -m "$(git log -1 --pretty=%B) [deploy]"
-git push origin deployed && echo "Deploy successful"
+git push origin deployed
+
+echo "Deploy successful"
 
 git checkout -
