@@ -1,4 +1,4 @@
-#!/user/bin/env sh
+#!/usr/bin/env sh
 
 mv in.txt out.txt
 echo "World!" >> out.txt
