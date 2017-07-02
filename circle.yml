@@ -11,4 +11,6 @@ deployment:
   production:
     branch: master 
     commands:
+      - chmod +x ./post
+      - chmod +x ./deploy
       - ./deploy

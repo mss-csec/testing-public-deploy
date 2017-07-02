@@ -8,7 +8,7 @@ fi
 
 git checkout -b deployed
 
-chmod +x ./post && ./post
+./post
 
 git add -fA
 git commit --allow-empty -m "$(git log -1 --pretty=%B) [deploy]"
