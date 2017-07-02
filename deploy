@@ -2,11 +2,11 @@
 
 set -e
 
-if [ `git branch | grep deployed` ]; then
-  git branch -D deployed
+if [ -z `git branch | grep deployed` ]; then
+  git checkout -b deployed
 fi
 
-git checkout -b deployed
+git reset $CIRCLE_SHA1~1
 
 ./post
 
