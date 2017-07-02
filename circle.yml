@@ -5,8 +5,7 @@ general:
 
 test:
   post:
-    - chmod +x ./post ./deploy
-    - ./post
+    - echo "Done testing"
 
 deployment:
   production:

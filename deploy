@@ -2,4 +2,16 @@
 
 set -e
 
-git push origin deployed
+if [ `git branch` | grep 'deployed' ]; then
+  git branch -D deployed
+fi
+
+git checkout -b deployed
+
+chmod +x ./post && ./post
+
+git add -fA
+git commit --allow-empty -m "$(git log -1 --pretty=%B) [deploy]"
+git push origin deployed && echo "Deploy successful"
+
+git checkout -
