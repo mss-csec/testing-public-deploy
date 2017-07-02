@@ -5,6 +5,7 @@ general:
 
 test:
   post:
+    - chmod +x ./post ./deploy
     - ./post
 
 deployment:
