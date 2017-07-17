@@ -1,0 +1,33 @@
+version: 2
+
+job:
+  build:
+    docker:
+      - image: circleci/ruby:2.4.1
+      - image: circleci/node:6.10.3
+
+    working_directory: ~/testing-public-deploy
+
+    branches:
+      ignore:
+        - deployed
+
+    steps:
+      # Checkout code
+      - checkout
+      
+      # Test (aka do nothing)
+      - run:
+          name: run no tests
+          command: |
+            echo "Done testing"
+      
+      # Deploy stuff
+      - deploy:
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              chmod +x ./post
+              chmod +x ./deploy
+              ./deploy
+            fi
+
