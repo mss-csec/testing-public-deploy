@@ -20,6 +20,7 @@ job:
       - run:
           name: run no tests
           command: |
+            ls -R
             echo "Done testing"
       
       # Deploy stuff
