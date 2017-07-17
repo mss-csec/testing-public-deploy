@@ -3,4 +3,4 @@
 mv in.txt out.txt
 echo "World!" >> out.txt
 
-find . -maxdepth 1 ! -name 'circle.yml' ! -name 'out.txt' ! -name '.git' -delete
+find . -maxdepth 1 ! -name '.circleci' ! -name 'out.txt' ! -name '.git' -delete
